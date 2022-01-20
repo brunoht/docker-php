@@ -1,5 +1,6 @@
 FROM ubuntu:20.04
 
+# altere para o mesmo nome do usuario do seu sistema operacional
 ARG USER=ti
 
 RUN apt update && apt install php-fpm php-mysql php-mbstring php-xml php-bcmath php-cli unzip vim -y
@@ -15,4 +16,6 @@ USER ${USER}
 
 WORKDIR /app
 
-EXPOSE 80
+EXPOSE 8000
+
+CMD [ "php", "artisan", "serve", "--host=0.0.0.0" ]

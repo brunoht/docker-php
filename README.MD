@@ -1,39 +1,30 @@
-# README
+# PHP Playground
 
-## Desenvolvimento com Docker
-
-Primeira execução, após baixar o reposítório:
+## Download
 
 ```bat
-cp .env.example .env
-docker build -t brunolohl/laravel .
-docker run --rm -it --name lws-server --user $USER:$USER -v $('pwd'):/home/ti brunolohl/laravel bash
+git clone https://github.com/brunoht/docker-php.git
+cd docker-php
 ```
 
-Dentro do container, instale as dependências do projeto
+## Build da imagem
 
 ```bat
-composer install
-php artisan key:generate
-exit
+docker build -t php-playground-img .
 ```
 
+## Executando o container
 
-## Executando a aplicação
+Vá até o diretório onde está a aplicação PHP.
 
 ```bat
-docker run --rm -d --name lws-server --user $USER:$USER -v $('pwd'):/home/ti -p 8000:8000 brunolohl/laravel
+docker run --rm -it --name php-playground --user $USER:$USER -v $('pwd'):/app -p 8080:80 php-playground-img bash
 ```
 
-### Acessando o container
+## Comandos PHP
+
+Inicia o servidor web buil-in do PHP
 
 ```bat
-docker exec -it lws-server bash
-```
-
-
-### Parando a aplicação
-
-```bat
-docker stop lws-server 
+php -S 0.0.0.0:80 -t public
 ```

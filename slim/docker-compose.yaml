@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+
+  app:
+    build: .
+    container_name: slim-playground
+    volumes:
+      - ./:/app
+    ports:
+      - 8080:80
+    tty: true
+    restart: unless-stopped
