@@ -1,5 +1,6 @@
 FROM ubuntu:20.04
 
+# altere para o mesmo nome do usuario do seu sistema operacional
 ARG USER=ti
 
 RUN apt update && apt install php-fpm php-mysql php-mbstring php-xml php-bcmath php-cli unzip vim -y
