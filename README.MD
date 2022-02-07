@@ -2,14 +2,14 @@
 
 ## Download
 
-```bat
+```shell
 git clone https://github.com/brunoht/docker-php.git
 cd docker-php
 ```
 
 ## Build da imagem
 
-```bat
+```shell
 docker build -t php-playground-img .
 ```
 
@@ -17,7 +17,7 @@ docker build -t php-playground-img .
 
 Vá até o diretório onde está a aplicação PHP.
 
-```bat
+```shell
 docker run --rm -it --name php-playground --user $USER:$USER -v $('pwd'):/app -p 8080:80 php-playground-img bash
 ```
 
@@ -25,6 +25,6 @@ docker run --rm -it --name php-playground --user $USER:$USER -v $('pwd'):/app -p
 
 Inicia o servidor web buil-in do PHP
 
-```bat
+```shell
 php -S 0.0.0.0:80 -t public
 ```

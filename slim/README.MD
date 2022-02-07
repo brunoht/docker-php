@@ -10,7 +10,7 @@ Caso o seu diretório esteja vazio, você deve iniciar sua aplicação Slim
 
 Inicie a imagem do container:
 
-```bat
+```shell
 docker build -t slim-playground-img .
 ```
 
@@ -18,13 +18,13 @@ docker build -t slim-playground-img .
 
 - Vá até o diretório onde você iniciará o seu projeto
 
-```bat
+```shell
 cd /nome/do/diretorio
 ```
 
 - Execute o container dentro do diretório que será criado o projeto:
   
-```bat
+```shell
 docker run --rm -it --name slim-playground --user $USER:$USER -v $('pwd'):/app -p 8080:80 slim-playground-img bash
 ```
 
@@ -32,7 +32,7 @@ docker run --rm -it --name slim-playground --user $USER:$USER -v $('pwd'):/app -
 
 - Ao término da instalação das dependências, saia do container:
 
-```bat
+```shell
 exit
 ```
 
@@ -46,7 +46,7 @@ Feito isso, os comandos abaixo ficarão disponíveis para você.
 
 ## Iniciando o container
 
-```bat
+```shell
 docker-compose up -d
 ```
 
@@ -54,12 +54,18 @@ docker-compose up -d
 
 ## Acessando o container da aplicação
 
-```bat
+```shell
 docker exec -it slim-playground bash
+```
+
+## Monitoramento de logs
+
+```shell
+docker-compose logs -f
 ```
 
 ## Parando o container
 
-```bat
+```shell
 docker-compose down
 ```
