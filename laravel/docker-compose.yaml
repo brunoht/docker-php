@@ -8,6 +8,6 @@ services:
     volumes:
       - ./:/app
     ports:
-      - 8080:80
+      - 8000:8000
     tty: true
     restart: unless-stopped
