@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+
+  elasticsearch:
+    image: elasticsearch:2.3.1
+    container_name: elasticsearch-playground
+    restart: always
+    tty: true
+    volumes:
+      - ./plugins:/usr/share/elasticsearch/plugins
+    ports:
+      - 9200:9200
+      - 9300:9300
+    networks:
+      - lohl-net
+
+  kibana:
+    image: kibana:4.5.0
+    container_name: kibana-playground
+    restart: always
+    tty: true
+    ports:
+      - 5601:5601
+    networks:
+      - lohl-net
+
+networks:
+  lohl-net:
+    driver: bridge
+
+volumes:
+  lohl-elastic-volume:
